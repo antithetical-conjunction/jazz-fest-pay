@@ -37,7 +37,7 @@
             overflow: hidden;
         }
 
-        /* BUTTON POSITION */
+        /* COPY BUTTON POSITION */
 
         .bank-container {
             position: absolute;
@@ -48,7 +48,7 @@
             z-index: 2;
         }
 
-        /* COPY BUTTON */
+        /* BLACK BUTTON WITH WHITE TEXT */
 
         .share-btn {
             width: 100%;
@@ -73,41 +73,32 @@
                 transform 0.1s ease;
         }
 
-        /* HOVER */
-
         .share-btn:hover {
             background: #333333;
         }
 
-        /* WHEN PRESSED */
-
         .share-btn:active {
             transform: scale(0.97);
         }
-
-        /* COPIED BUTTON */
 
         .share-btn.copied {
             background: #000000;
             color: #ffffff;
         }
 
-        /* THANK YOU CONTAINER */
+        /* THANK YOU TEXT - LOW ON PAGE */
 
         .thank-you {
             position: absolute;
-            top: 62%;
+            top: 75%;
             left: 50%;
+            transform: translate(-50%, -50%);
 
-            transform: translate(-47%, -50%) scale(0.7);
+            width: 95%;
 
             display: flex;
-            flex-direction: column;
             align-items: center;
             justify-content: center;
-
-            gap: 8px;
-            width: 95%;
 
             opacity: 0;
             visibility: hidden;
@@ -115,12 +106,10 @@
 
             z-index: 3;
 
-            transition:
-                opacity 0.5s ease,
-                transform 0.5s ease;
+            transition: opacity 0.5s ease;
         }
 
-        /* THANK YOU TEXT */
+        /* SIMPLE BLACK TEXT */
 
         .thank-you-message {
             color: #000000;
@@ -130,26 +119,10 @@
 
             font-size: clamp(30px, 6vw, 58px);
             line-height: 0.95;
+
             text-align: center;
             text-transform: uppercase;
             letter-spacing: 1px;
-
-            transform: rotate(-3deg);
-        }
-
-        /* MONSTER IMAGE */
-
-        .thank-you img {
-            width: 1000px;
-            max-width: 95vw;
-            height: auto;
-            display: block;
-
-            filter: drop-shadow(
-                0 10px 10px rgba(0, 0, 0, 0.2)
-            );
-
-            animation: monsterWiggle 2s ease-in-out infinite;
         }
 
         /* SHOW THANK YOU */
@@ -157,24 +130,6 @@
         .thank-you.show {
             opacity: 1;
             visibility: visible;
-
-            transform: translate(-47%, -50%) scale(1);
-        }
-
-        /* MONSTER WIGGLE */
-
-        @keyframes monsterWiggle {
-            0% {
-                transform: rotate(-2deg);
-            }
-
-            50% {
-                transform: rotate(2deg) translateY(-5px);
-            }
-
-            100% {
-                transform: rotate(-2deg);
-            }
         }
 
         /* PHONE / SMALL SCREEN */
@@ -191,25 +146,13 @@
             }
 
             .thank-you {
-                top: 62%;
+                top: 75%;
                 width: 100%;
-                gap: 5px;
-
-                transform: translate(-47%, -50%) scale(0.7);
             }
 
             .thank-you-message {
                 font-size: 32px;
                 line-height: 0.9;
-            }
-
-            .thank-you img {
-                width: 1000px;
-                max-width: 95vw;
-            }
-
-            .thank-you.show {
-                transform: translate(-47%, -50%) scale(1);
             }
         }
     </style>
@@ -229,20 +172,13 @@
         </button>
     </div>
 
-    <!-- THANK YOU MESSAGE AND MONSTER -->
+    <!-- THANK YOU TEXT ONLY - NO MONSTER -->
 
     <div class="thank-you" id="thankYou">
-
         <div class="thank-you-message">
             Thanks for supporting<br>
             live music :D
         </div>
-
-        <img
-            src="image.png"
-            alt="Silly monster"
-        >
-
     </div>
 
     <!-- JAVASCRIPT -->
