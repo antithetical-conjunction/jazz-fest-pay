@@ -15,7 +15,7 @@
             margin: 0;
             padding: 0;
             width: 100%;
-            min-height: 100%;
+            height: 100%;
         }
 
         body {
@@ -27,7 +27,11 @@
                 Arial,
                 sans-serif;
 
-            background: #ffffff;
+            background-image: url("image-1024.jpg");
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+
             min-height: 100vh;
             position: relative;
             overflow: hidden;
@@ -62,7 +66,7 @@
 
             cursor: pointer;
 
-            box-shadow: 0 5px 18px rgba(0, 0, 0, 0.2);
+            box-shadow: 0 5px 18px rgba(0, 0, 0, 0.5);
 
             transition:
                 background 0.2s ease,
@@ -95,13 +99,14 @@
             top: 62%;
             left: 50%;
 
-            transform: translate(-50%, -50%) scale(0.9);
+            transform: translate(-47%, -50%) scale(0.7);
 
             display: flex;
             flex-direction: column;
             align-items: center;
             justify-content: center;
 
+            gap: 8px;
             width: 95%;
 
             opacity: 0;
@@ -132,13 +137,44 @@
             transform: rotate(-3deg);
         }
 
+        /* MONSTER IMAGE */
+
+        .thank-you img {
+            width: 1000px;
+            max-width: 95vw;
+            height: auto;
+            display: block;
+
+            filter: drop-shadow(
+                0 10px 10px rgba(0, 0, 0, 0.2)
+            );
+
+            animation: monsterWiggle 2s ease-in-out infinite;
+        }
+
         /* SHOW THANK YOU */
 
         .thank-you.show {
             opacity: 1;
             visibility: visible;
 
-            transform: translate(-50%, -50%) scale(1);
+            transform: translate(-47%, -50%) scale(1);
+        }
+
+        /* MONSTER WIGGLE */
+
+        @keyframes monsterWiggle {
+            0% {
+                transform: rotate(-2deg);
+            }
+
+            50% {
+                transform: rotate(2deg) translateY(-5px);
+            }
+
+            100% {
+                transform: rotate(-2deg);
+            }
         }
 
         /* PHONE / SMALL SCREEN */
@@ -157,11 +193,23 @@
             .thank-you {
                 top: 62%;
                 width: 100%;
+                gap: 5px;
+
+                transform: translate(-47%, -50%) scale(0.7);
             }
 
             .thank-you-message {
                 font-size: 32px;
                 line-height: 0.9;
+            }
+
+            .thank-you img {
+                width: 1000px;
+                max-width: 95vw;
+            }
+
+            .thank-you.show {
+                transform: translate(-47%, -50%) scale(1);
             }
         }
     </style>
@@ -181,13 +229,20 @@
         </button>
     </div>
 
-    <!-- THANK YOU MESSAGE -->
+    <!-- THANK YOU MESSAGE AND MONSTER -->
 
     <div class="thank-you" id="thankYou">
+
         <div class="thank-you-message">
             Thanks for supporting<br>
             live music :D
         </div>
+
+        <img
+            src="image.png"
+            alt="Silly monster"
+        >
+
     </div>
 
     <!-- JAVASCRIPT -->
